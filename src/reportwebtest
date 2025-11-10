@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Photo Manager</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <style>
+        .gallery {
+            float: left;
+            width: 65%;
+            min-height: 12em;
+        }
+        .gallery div {
+            float: left;
+            width: 96px;
+            padding: 0.4em;
+            margin: 0 0.4em 0.4em 0;
+            text-align: center;
+        }
+        .gallery div h5 {
+            margin: 0 0 0.4em;
+        }
+        .gallery div img {
+            width: 100%;
+            cursor: move;
+        }
+        #trash {
+            float: right;
+            width: 32%;
+            min-height: 18em;
+            resize: both; /* Permitir redimensionar */
+            overflow: auto;
+            border: 1px solid #ccc;
+        }
+        #trash .w3-panel {
+            margin: 0 0 1em 0;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="w3-container w3-card-4 w3-border w3-border-blue">
+        <div id="gallery" class="gallery">
+            <div class="w3-panel w3-card-4 w3-border w3-border-green w3-hover-border-red">
+                <h5 class="w3-center">High Tatras</h5>
+                <img src="https://mywonderland.es/curso_js/bootstrap/ejemplos/images/32.jpg" alt="The peaks of High Tatras" width="96" height="72">
+            </div>
+            <div class="w3-panel w3-card-4 w3-border w3-border-green w3-hover-border-red">
+                <h5 class="w3-center">High Tatras 2</h5>
+                <img src="https://mywonderland.es/curso_js/bootstrap/images/imagenes.png" alt="The chalet at the Green mountain lake" width="96" height="72">
+            </div>
+        </div>
+    </div>
+    <div class="w3-container w3-card-4 w3-border w3-border-red">
+        <div id="trash" class="w3-panel w3-card-4 w3-border w3-border-blue" contenteditable="true">
+            <h4 class="w3-center">Trash</h4>
+        </div>
+    </div>
+
+    <script>
+        const gallery = document.getElementById('gallery');
+        const trash = document.getElementById('trash');
+
+        // Make gallery items draggable
+        const galleryItems = gallery.querySelectorAll('div');
+        galleryItems.forEach(item => {
+            item.setAttribute('draggable', true);
+            item.addEventListener('dragstart', (e) => {
+                e.dataTransfer.setData('text/plain', item.outerHTML);
+            });
+        });
+
+        // Make trash droppable
+        trash.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            trash.classList.add('w3-light-grey');
+        });
+
+        trash.addEventListener('dragleave', () => {
+            trash.classList.remove('w3-light-grey');
+        });
+
+        trash.addEventListener('drop', (e) => {
+            e.preventDefault();
+            trash.classList.remove('w3-light-grey');
+            const data = e.dataTransfer.getData('text/plain');
+            const div = document.createElement('div');
+            div.innerHTML = data;
+            trash.appendChild(div);
+
+            // Allow removing items from trash
+            div.addEventListener('dragend', () => {
+                div.remove();
+            });
+        });
+    </script>
+</body>
+</html>

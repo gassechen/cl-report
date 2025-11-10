@@ -1,0 +1,272 @@
+.desktop {
+    background-color: #f7f7f7;
+    width: 100hh;
+    height: 200vh;
+    position: relative;
+    overflow: auto;
+}
+
+.windows-content {
+    background-color: #f7f7f7;
+    width: 100hh;
+    height: 200vh;
+    position: relative;
+    overflow: auto;
+
+}
+ 
+
+.context-menu {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #000;
+    padding: 0;
+    list-style-type: none;
+    margin: 0;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.context-menu ul {
+    padding: 0;
+    margin: 0;
+}
+
+.context-menu li {
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.context-menu li:hover {
+    background-color: #eee;
+}
+
+.resizable-card {
+    /* Estilos iniciales de la tarjeta */
+    position:relative
+    z-index:2;
+    width: 300px;
+    height: 300px;
+    background-color: #fff;
+    position: absolute;
+    cursor: pointer;
+    user-select: none;
+    transition: transform 0.9s ease;
+    overflow: inherit;
+    border: #1e87f02e;
+    border-style: solid;
+    border-radius: 20px;
+}
+
+.hidden-card {
+    opacity: 1; /* Establecer la opacidad al 90% */
+
+}
+
+.tool-bar-windows{
+    margin-right: 0px;
+    padding: 10px 3px 10px 5px; 
+}
+
+.minimized-window {
+    position: relative;
+    z-index:1;
+    width: 100px;
+    height: 40px;
+    background-color: #e0e0e0;
+    margin: 5px;
+    text-align: center;
+    padding-bottom: 10px;
+    cursor: pointer;
+    /* Agrega sombra */
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+    /* Agrega bordes redondeados */
+    border-radius: 5px;
+    /* Transición suave para efecto hover */
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+/* Efecto de hover */
+.minimized-window:hover {
+    background-color: #d0d0d0; /* Cambia el color de fondo al pasar el mouse */
+    transform: scale(1.1); /* Escala ligeramente el elemento al pasar el mouse */
+}
+
+
+.close-button {
+    float: right;
+    cursor: pointer;
+}
+
+.overlay {
+  position: fixed;
+  display: none;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 2;
+  cursor: pointer;
+}
+
+
+.w3-sidebar {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  top: 0;
+  right: 0;
+  background-color: #f2f2f2;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+  z-index: 2;
+}
+
+.w3-sidebar a {
+  padding: 8px;
+  text-decoration: none;
+  font-size: 16px;
+  color: #333;
+  display: block;
+  transition: 0.3s;
+}
+
+.w3-sidebar a:hover {
+  color: #000;
+}
+
+.w3-sidebar .closebtn {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+}
+
+/* Estilo para el botón de alternancia */
+.toggle-btn {
+  position: fixed;
+  top: 50px;
+  right: 0;
+  padding: 10px;
+  background-color: #f2f2f2;
+  cursor: pointer;
+  z-index: -1;
+}
+
+
+/* Barra de desplazamiento vertical */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* Barra de desplazamiento horizontal */
+::-webkit-scrollbar:horizontal {
+  height: 6px;
+}
+
+/* Fondo de la barra de desplazamiento */
+::-webkit-scrollbar-track {
+  background: #f5f5f500;
+  border-radius: 6px;
+}
+
+/* Deslizador de la barra de desplazamiento en estado normal (sin desplazamiento) */
+::-webkit-scrollbar-thumb {
+  background: #f5f5f500;
+  border-radius: 6px;
+}
+
+/* Deslizador de la barra de desplazamiento al pasar el cursor por encima */
+::-webkit-scrollbar-thumb:hover {
+  background: #f5f5f500;
+}
+
+/* Deslizador de la barra de desplazamiento al hacer clic */
+::-webkit-scrollbar-thumb:active {
+  background: #f5f5f500;
+}
+
+ul#windows-content li {
+    display:inline;
+    position:relative
+    z-index:2;
+    width: 300px;
+    height: 340px;
+    background-color: #fff;
+    position: absolute;
+    cursor: pointer;
+    user-select: none;
+    transition: transform 0.9s ease;
+    overflow: auto;
+
+}
+
+.material-icons-select {
+    padding: 5px 5px 5px 128px; 
+    font-family: 'Material Icons';
+    font-size: 24px; /* Ajusta el tamaño de la fuente según sea necesario */
+    background-color:#fbfbfb00;
+}
+
+.material-icons-select option {
+    padding-left: 25px;
+}
+
+.material-icons-select option::before {
+    content: attr(value);
+    display: inline-block;
+    font-family: 'Material Icons';
+    margin-right: 5px;
+}
+
+
+#map {
+  width: 100%;
+  height: 400px; /* Ajusta la altura según tus necesidades */
+}
+
+
+#droppable {
+    width: 100%;
+    height: 30px;
+    padding: 0.5em;
+    float: left;
+    margin: 1px;
+    transition: width 0.3s, height 0.3s; /* Animaciones para expansión y contracción */
+    background-color: #fff0f000;
+}
+
+
+
+.expanded {
+    width: 300px; /* Tamaño cuando está expandido */
+    height: 600px; /* Altura cuando está expandido */
+     transition: width 0.3s, height 0.3s; /* Animaciones para expansión y contracción */
+}
+
+
+
+.editable {
+    outline: 2px dashed #00f; /* Borde discontinuo azul */
+    background-color: #f0f8ff; /* Fondo azul claro */
+    cursor: text; /* Cambia el cursor a uno de texto */
+}
+
+
+.eye-icon {
+    position: absolute;
+    top: 1px;
+    right: 1px;
+    cursor: pointer;
+    opacity:0%
+  
+}
+
+.my-editor {
+  box-shadow: 0 0 2px #CCC;
+  min-height: 50px;
+  overflow: auto;
+  padding: 1em;
+  margin-top: 20px;
+  resize: vertical;
+  outline: none;
+}
+
+

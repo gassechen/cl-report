@@ -1,0 +1,26 @@
+/* styles.css */
+.horizontal-list {
+  list-style: none;
+  display: flex;
+  padding: 0;
+  margin: 0;
+  flex-wrap: wrap; /* Nueva propiedad para envolver los elementos */
+}
+
+.horizontal-list li {
+  padding: 10px 20px;
+  background-color: rgb(255,255,255); 
+  border-radius: 5px;
+  margin-right: 10px;
+  margin-bottom: 10px; /* Espaciado entre elementos */
+  flex-basis: calc(25% - 20px); /* Ajusta la cantidad de elementos por fila */
+}
+
+/* Estilos adicionales para dispositivos pequeños */
+@media screen and (max-width: 600px) {
+  .horizontal-list li {
+    flex-basis: calc(50% - 20px); /* 2 elementos por fila en dispositivos pequeños */
+  }
+}
+
+#droppable { width: 150px; height: 150px; padding: 0.5em; float: left; margin: 10px; }

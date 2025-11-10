@@ -1,0 +1,13 @@
+# Common Lisp build files
+*.fasl
+
+# Emacs backup files
+*~
+#*#
+
+# Log files
+*.log
+
+# Database files
+db-projects
+src/db-projects

@@ -1,0 +1,1 @@
+../front-cljs-app/resources/public/cljs-out/dev-main.js

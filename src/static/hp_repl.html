@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Hyperscript REPL with jq-console</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jq-console/2.7.7/jqconsole.min.css">
+  <script src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jq-console/2.7.7/jqconsole.min.js"></script>
+  <script src="https://unpkg.com/hyperscript.org@0.9.9/dist/_hyperscript.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    #console {
+      width: 100%;
+      height: 300px;
+      border: 1px solid #ccc;
+      padding: 10px;
+      background-color: #f9f9f9;
+    }
+  </style>
+</head>
+<body>
+  <div id="example">Hola, Hyperscript!</div>
+  <div id="console"></div>
+
+  <script>
+    $(function () {
+      var jqconsole = $('#console').jqconsole(
+        '', '>>> ', '... ', true
+      );
+
+      jqconsole.Write('Welcome to the Hyperscript REPL demo.\n\n', 'jqconsole-output');
+
+      var startPrompt = function () {
+        jqconsole.Prompt(true, function (input) {
+          jqconsole.Write('Processing: ' + input + '\n', 'jqconsole-output');
+          try {
+            // Process Hyperscript command
+            const result = _hyperscript(input.trim(), document.body);
+            if (result) {
+              jqconsole.Write(result.toString() + '\n', 'jqconsole-output');
+            } else {
+              jqconsole.Write('Command executed\n', 'jqconsole-output');
+            }
+          } catch (e) {
+            jqconsole.Write('Error: ' + e.message + '\n', 'jqconsole-error');
+          }
+          startPrompt(); // Restart the prompt
+        });
+      };
+
+      startPrompt();
+    });
+  </script>
+</body>
+</html>

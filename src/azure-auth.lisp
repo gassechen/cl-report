@@ -1,11 +1,4 @@
-;;azureauth.lisp
-;; Para producción son los siguientes:
-;; UsuarioAccesoApi: b2c_ropc
-;; ClaveUsuarioAccesoApi: y0QTjEAW
 
-;; Para desarrollo son los siguientes:
-;; UsuarioAccesoApi: b2c_ropc
-;; ClaveUsuarioAccesoApi: 1btsHebg
 
 (in-package :cl-report)
 
